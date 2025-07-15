@@ -1,0 +1,26 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-store/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Optional: Logs
+logs/
+*.log
+
+# Optional: Editor/IDE specific files
+.vscode/        # VS Code specific settings (you might want to include some of these)
+.idea/          # IntelliJ/WebStorm IDE files
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store       # macOS
+Thumbs.db       # Windows
+ehthumbs.db     # Windows
