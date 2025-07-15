@@ -22,7 +22,7 @@ app.use(express.static('public'));
 
 //Root Route
 app.get('/', (req, res) => {
-  res.send('Welcome to the Book CRUD API with MongoDB!');
+  res.redirect('/index.html');
 });
 
 // --- Book Routes ---

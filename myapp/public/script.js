@@ -16,12 +16,15 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Iterate over the books and create HTML list items
             books.forEach(book => {
                 const listItem = document.createElement('li');
+                const date = new Date(book.createdAt);
+                date.toLocaleDateString();
+                // Set the inner HTML of the list item with book details
                 listItem.innerHTML = `
                     <strong>Title:</strong> ${book.title}<br>
                     <strong>Author:</strong> ${book.author}<br>
                     <strong>ISBN:</strong> ${book.isbn}<br>
                     <img src="${book.thumbnail}" alt="${book.title} thumbnail" style="max-width: 100px; height: auto; margin-top: 5px;"><br>
-                    <small>Published Year: ${book.publishedYear || 'N/A'}</small>
+                    <small>Uploaded on: ${date || 'N/A'}</small>
                 `;
                 bookList.appendChild(listItem);
             });
