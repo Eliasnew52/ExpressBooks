@@ -5,6 +5,8 @@ require('dotenv').config();
 const express = require('express'); 
 const connectDB = require('./config/db');  // Database connection module       
 const bookRoutes = require('./routes/bookRoutes'); //Book routes
+const userRoutes = require('./routes/userRoutes'); // User routes 
+const reviewRoutes = require('./routes/reviewRoutes'); // Review routes
 
 // Express App Initialization
 const app = express();
@@ -25,8 +27,16 @@ app.get('/', (req, res) => {
   res.redirect('/index.html');
 });
 
+
 // --- Book Routes ---
 app.use('/api/books', bookRoutes);
+
+// --- User Routes ---
+app.use('/api/users', userRoutes);
+
+// --- Review Routes ---
+app.use('/api/books/:bookId/reviews', reviewRoutes); // Note: The bookId is dynamic and will be handled in the reviewRoutes file
+
 
 
 // --- Error Handling Middleware ---
