@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Welcome to Your Protected App</title>
+    <link rel="stylesheet" href="/css/style.css"> <!-- Link to your CSS -->
 </head>
 <body>
-    <h1>Our Books</h1>
-    <div id="books-container">
-        <ul id="book-list">
-            </ul>
+    <div class="container">
+        <h1>Welcome, <span id="usernameDisplay">Guest</span>!</h1>
+        <p>This is your personalized dashboard. You are logged in.</p>
+        <button id="logoutBtn">Logout</button>
+
+        <hr>
+
+        <h2>Your Books</h2>
+        <ul id="bookList">
+            <li>Loading books...</li>
+        </ul>
+        <p id="bookMessage" style="color: red;"></p>
     </div>
+
+    <script src="script.js"></script> <!-- Link to your JavaScript -->
 </body>
-<script src="script.js"></script>
 </html>
