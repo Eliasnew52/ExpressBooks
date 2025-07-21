@@ -9,6 +9,7 @@ const userRoutes = require('./routes/userRoutes');
 const reviewRoutes = require('./routes/reviewRoutes');
 const { protect } = require('./middleware/auth'); // Import your authentication middleware
 const cookieParser = require('cookie-parser'); // Import cookie-parser
+const cors = require('cors'); // Import CORS for cross-origin requests
 
 // Express App Initialization
 const app = express();
@@ -18,8 +19,10 @@ const PORT = process.env.PORT || 8000;
 connectDB();
 
 // Middleware
+app.use(cors()); // Enable CORS for all routes
 app.use(express.json()); // To parse JSON request bodies
 app.use(cookieParser()); // To parse cookies (if HTTP-only cookies for JWT)
+
 
 // Serve static files from the 'public' directory
 // This line is crucial! It makes files inside 'public' accessible directly via URL.
@@ -40,6 +43,7 @@ app.use('/api/users', userRoutes); // This handles /api/users/register and /api/
 // Any request to /api/books or /api/books/:bookId/reviews will first go through 'protect'
 app.use('/api/books', protect, bookRoutes);
 app.use('/api/books/:bookId/reviews', protect, reviewRoutes);
+
 
 // Protect the index.html file itself
 // If someone tries to go directly to /index.html without a valid token,
